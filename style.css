@@ -1,360 +1,365 @@
 :root{
-     --C_background: #F5F3EF;
-    --C_card: #FFFFFF;
-    --C_accent: #FEBD2F;
-    --C_text-primary: #000000;
-    --C_text-secondary: #646464;
-    --C_outline: #DCDCDC;
-    --StdMargin: 65px;
-    --TbltMargin: 35px;
+  --C_background: #F5F3EF;
+ --C_card: #FFFFFF;
+ --C_accent: #FEBD2F;
+ --C_text-primary: #000000;
+ --C_text-secondary: #646464;
+ --C_outline: #DCDCDC;
+ --StdMargin: 65px;
+ --TbltMargin: 35px;
+}
+
+/* Beautiful work on using CSS Grid and flex box together! */
+body {
+ background-color: var(--C_background);
+ width: 100%;
+ color: var(--C_text-primary);
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ grid-template-rows: repeat(4, auto);
+ /* Superb! You’ve used grid template areas correctly! */
+ grid-template-areas: 
+ "nav nav"
+ "headL headR"
+ "main main"
+ "foot foot";
+}
+
+h1, h2, h3 {
+ font-family: "Roboto Serif", serif;
+ font-weight: 500;
+}
+
+h1 {
+ font-size: 64px;
+}
+
+h2 {
+ font-size: 40px;
+}
+
+h3 { 
+ font-size: 24px;
+ font-weight: 700;
+}
+
+/* Nice work on using the correct font for the correct element! */
+p {
+ color: var(--C_text-secondary);
+ font-size: 24px;
+ font-weight: 400;
+ font-family: "Roboto", sans-serif;
+}
+
+a, button, #nav-ham-items {
+ color: var(--C_text-primary);
+ text-decoration: none;
+ font-family: "Roboto", sans-serif;
+ font-weight: 500;
+ font-size: 16px;
+}
+
+button {
+ border-style: none;
+ border-radius: 25px;
+ padding: 10px 25px 10px 25px;
+}
+
+.navigation button {
+ background-color: var(--C_text-primary);
+ color: var(--C_card);
+ font-weight: 400;
+}
+
+.content-grid button {
+ background-color: var(--C_card);
+ border: 1px solid var(--C_outline);
+ font-size: 18px;
+}
+
+.header-left {
+ grid-area: headL;
+ margin-left: var(--StdMargin);
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: space-between;
+ padding: 25px; 
+}
+
+.header-left h1 {
+ text-align: left;
+ max-width: 625px;
+}
+
+.header-left p {
+ text-align: left;
+ max-width: 625px;
+}
+
+.header-right {
+ grid-area: headR;
+ margin-right: var(--StdMargin);
+ display: flex;
+ justify-content: center;
+ align-items: flex-start;
+ min-width: 50%;
+}
+
+.header-right img {
+ object-fit: cover;
+ max-width:540px;
+ max-height:396px;
+ width: 100%;
+ height: auto;
+}
+
+.navigation {
+grid-area: nav;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: auto;
+grid-template-areas:
+"navL navC navR";
+margin: 25px var(--StdMargin) min(100px, 10%) var(--StdMargin);
+}
+
+.nav-left {
+ grid-area: navL;
+ display: flex;
+ justify-content: space-between;
+ max-width: 33%;
+ min-width: 150px;}
+
+.nav-center {
+ grid-area: navC;
+ justify-self: center;
+}
+
+.nav-right {
+ grid-area: navR;
+ justify-self: end;
+}
+
+.nav-ham {
+ grid-area: navH;
+}
+
+.nav-ham, #nav-ham-items, #hamburger-menu {
+   display: none;
+ }
+
+.navigation button {
+ font-size: 16px;
+ }
+
+main {
+grid-area: main;
+}
+
+footer {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background-color: var(--C_accent);
+ height: 100px;
+ grid-area: foot;
+}
+
+.content-grid {
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ grid-template-rows: repeat(2, auto);
+ row-gap: 65px;
+ column-gap: 25px;
+ margin: min(100px, 10%) var(--StdMargin) min(100px, 10%) var(--StdMargin);
+}
+
+.content-card {
+ background-color: var(--C_card);
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ justify-content: space-between;
+ border-style: none;
+ border-radius: 25px;
+ padding: 25px; 
+ max-width: 325px;
+ min-width: 225px;
+ justify-self: center;
+ height: 225px;
+ position: relative;
+}
+
+.content-card p {
+ font-size: 18px;
+}
+
+.icon img {
+ position: absolute;
+ right: 4%;
+ top: -18%;
   }
 
-  body {
-    background-color: var(--C_background);
-    width: 100%;
-    color: var(--C_text-primary);
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, auto);
-    grid-template-areas: 
-    "nav nav"
-    "headL headR"
-    "main main"
-    "foot foot";
+.banner {
+ background-color: var(--C_accent);
+}
+
+/* Superb work! Your website is completely responsive! */
+@media screen and (min-width: 1600px){
+
+ .content-grid {
+   margin-left: auto;
+   margin-right: auto;
+   max-width: 1600px;
+ }
+
+ .navigation {
+   margin-left: 200px;
+   margin-right: 200px;
+ }
+
+ .header-left {
+   margin-left: auto;
+   margin-right: 8%;
+   /* max-width: 800px; */
+ }
+
+ .header-right {
+   margin-right: auto;
+   margin-left:8%;
+   /* max-width: 800px; */
+ }
+ }
+
+@media screen and (max-width: 1000px) {
+
+ body {
+   grid-template-columns: repeat(1, 1fr);
+   grid-template-rows: repeat(5, auto);
+   grid-template-areas: 
+   "nav"
+   "headL"
+   "headR"
+   "main"
+   "foot";
+ }
+
+ h2 {
+   font-size: 34px;
+ }
+
+ .navigation {
+   margin: 25px var(--TbltMargin) min(100px, 10%) var(--TbltMargin);
+ }
+
+ .header-left {
+   margin-left: var(--TbltMargin);
+   margin-right: var(--TbltMargin);
+ }
+
+ .header-right {
+   margin-right: var(--TbltMargin);
+   margin-left: var(--TbltMargin);
+   height: auto;
+   /* max-height: 350px; */
+ }
+
+ .header-left h1 {
+   font-size: 40px;
+   text-align: center;
+   margin-bottom: 25px;
+ }
+
+ .header-left p {
+   font-size: 20px;
+   text-align: center;
+ }
+
+ .header-right img {
+  max-width: 400%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 25px;
+ }
+
+ .content-grid {
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: repeat(3, auto);
+   margin: min(100px, 10%) var(--TbltMargin) min(100px, 10%) var(--TbltMargin);
+ }
+
+}
+
+@media screen and (max-width:650px) {
+ 
+ body {
+   /* min-width: 125px; */
+   max-width:100%;
+   overflow-x: hidden;
+ }
+
+ .header-right img {
+   max-width: 1000%;
+   height: auto;
+   object-fit: cover;
+   border-radius: 25px;
   }
 
-  h1, h2, h3 {
-    font-family: "Roboto Serif", serif;
-    font-weight: 500;
-  }
+ .navigation {
+ grid-template-areas:
+". navC navH";
+ }
 
-  h1 {
-    font-size: 64px;
-  }
+ .nav-left, .nav-right {
+   display: none;
+ }
 
-  h2 {
-    font-size: 40px;
-  }
+ .nav-ham {
+   display: block;
+   text-align: right;
+ }
 
-  h3 { 
-    font-size: 24px;
-    font-weight: 700;
-  }
+ .nav-ham label {
+   display: inline-block;
+   color: #000000;
+   background: #F5F3EF;
+   font-style: normal;
+   font-size: 35px;
+   padding: 5px;
+   justify-self: right;
+ }
 
-  p {
-    color: var(--C_text-secondary);
-    font-size: 24px;
-    font-weight: 400;
-    font-family: "Roboto", sans-serif;
-  }
+ .nav-ham input:checked ~ #nav-ham-items {
+   padding-top: 20px;
+   padding-bottom: 10px;
+   height: 150px;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+ }
 
-  a, button, #nav-ham-items {
-    color: var(--C_text-primary);
-    text-decoration: none;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-  }
+ .nav-ham input:checked ~ .navigation {
+   margin-bottom: 0px;
+ }
 
-  button {
-    border-style: none;
-    border-radius: 25px;
-    padding: 10px 25px 10px 25px;
-   }
+ .content-grid{
+   grid-template-columns: repeat(1, 1fr);
+   grid-template-rows: repeat(6, auto);
+   margin: min(100px, 10%) var(--TbltMargin) min(100px, 10%) var(--TbltMargin);
+ }
 
-  .navigation button {
-    background-color: var(--C_text-primary);
-    color: var(--C_card);
-    font-weight: 400;
-  }
+ .banner {
+   height: 150px;
+ }
 
-  .content-grid button {
-    background-color: var(--C_card);
-    border: 1px solid var(--C_outline);
-    font-size: 18px;
-  }
+ h2 {
+   font-size: 30px;
+ }
 
-  .header-left {
-    grid-area: headL;
-    margin-left: var(--StdMargin);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 25px; 
-  }
+ 
 
-  .header-left h1 {
-    text-align: left;
-    max-width: 625px;
-  }
+}
 
-  .header-left p {
-    text-align: left;
-    max-width: 625px;
-  }
-
-  .header-right {
-    grid-area: headR;
-    margin-right: var(--StdMargin);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-width: 50%;
-  }
-
-  .header-right img {
-    object-fit: cover;
-    max-width:540px;
-    max-height:396px;
-    width: 100%;
-    height: auto;
-  }
-
-  .navigation {
-   grid-area: nav;
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-   grid-template-rows: auto;
-   grid-template-areas:
-   "navL navC navR";
-   margin: 25px var(--StdMargin) min(100px, 10%) var(--StdMargin);
-  }
-
-  .nav-left {
-    grid-area: navL;
-    display: flex;
-    justify-content: space-between;
-    max-width: 33%;
-    min-width: 150px;}
-
-  .nav-center {
-    grid-area: navC;
-    justify-self: center;
-  }
-
-  .nav-right {
-    grid-area: navR;
-    justify-self: end;
-  }
-  
-  .nav-ham {
-    grid-area: navH;
-  }
-
-  .nav-ham, #nav-ham-items, #hamburger-menu {
-      display: none;
-    }
-
-  .navigation button {
-    font-size: 16px;
-    }
-
-  main {
-  grid-area: main;
-  }
-
-  footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--C_accent);
-    height: 100px;
-    grid-area: foot;
-  }
-
-  .content-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, auto);
-    row-gap: 65px;
-    column-gap: 25px;
-    margin: min(100px, 10%) var(--StdMargin) min(100px, 10%) var(--StdMargin);
-  }
-
-  .content-card {
-    background-color: var(--C_card);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    border-style: none;
-    border-radius: 25px;
-    padding: 25px; 
-    max-width: 325px;
-    min-width: 225px;
-    justify-self: center;
-    height: 225px;
-    position: relative;
-  }
-
-  .content-card p {
-    font-size: 18px;
-  }
-
-  .icon img {
-    position: absolute;
-    right: 4%;
-    top: -18%;
-     }
-
-  .banner {
-    background-color: var(--C_accent);
-  }
-
-  @media screen and (min-width: 1600px){
-
-    .content-grid {
-      margin-left: auto;
-      margin-right: auto;
-      max-width: 1600px;
-    }
-
-    .navigation {
-      margin-left: 200px;
-      margin-right: 200px;
-    }
-
-    .header-left {
-      margin-left: auto;
-      margin-right: 8%;
-      /* max-width: 800px; */
-    }
-
-    .header-right {
-      margin-right: auto;
-      margin-left:8%;
-      /* max-width: 800px; */
-    }
-    }
-
-  @media screen and (max-width: 1000px) {
-
-    body {
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(5, auto);
-      grid-template-areas: 
-      "nav"
-      "headL"
-      "headR"
-      "main"
-      "foot";
-    }
-
-    h2 {
-      font-size: 34px;
-    }
-
-    .navigation {
-      margin: 25px var(--TbltMargin) min(100px, 10%) var(--TbltMargin);
-    }
-
-    .header-left {
-      margin-left: var(--TbltMargin);
-      margin-right: var(--TbltMargin);
-    }
-
-    .header-right {
-      margin-right: var(--TbltMargin);
-      margin-left: var(--TbltMargin);
-      height: auto;
-      /* max-height: 350px; */
-    }
-
-    .header-left h1 {
-      font-size: 40px;
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .header-left p {
-      font-size: 20px;
-      text-align: center;
-    }
-
-    .header-right img {
-     max-width: 400%;
-     height: auto;
-     object-fit: cover;
-     border-radius: 25px;
-    }
-
-    .content-grid {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, auto);
-      margin: min(100px, 10%) var(--TbltMargin) min(100px, 10%) var(--TbltMargin);
-    }
-
-  }
-  
-  @media screen and (max-width:650px) {
-    
-    body {
-      /* min-width: 125px; */
-      max-width:100%;
-      overflow-x: hidden;
-    }
-
-    .header-right img {
-      max-width: 1000%;
-      height: auto;
-      object-fit: cover;
-      border-radius: 25px;
-     }
-
-    .navigation {
-    grid-template-areas:
-   ". navC navH";
-    }
-
-    .nav-left, .nav-right {
-      display: none;
-    }
-
-    .nav-ham {
-      display: block;
-      text-align: right;
-    }
-
-    .nav-ham label {
-      display: inline-block;
-      color: #000000;
-      background: #F5F3EF;
-      font-style: normal;
-      font-size: 35px;
-      padding: 5px;
-      justify-self: right;
-    }
-
-    .nav-ham input:checked ~ #nav-ham-items {
-      padding-top: 20px;
-      padding-bottom: 10px;
-      height: 150px;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-ham input:checked ~ .navigation {
-      margin-bottom: 0px;
-    }
-
-    .content-grid{
-      grid-template-columns: repeat(1, 1fr);
-      grid-template-rows: repeat(6, auto);
-      margin: min(100px, 10%) var(--TbltMargin) min(100px, 10%) var(--TbltMargin);
-    }
-
-    .banner {
-      height: 150px;
-    }
-
-    h2 {
-      font-size: 30px;
-    }
-
-    
-
-  }
